@@ -1,0 +1,283 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
+:root {
+  color: #1f2937;
+  background: #f3f4f6;
+  font-family: "JetBrains Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #f3f4f6;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+main {
+  width: min(720px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+  color: #111827;
+}
+
+h1 {
+  text-align: center;
+  font-family: inherit;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+h2 {
+  font-family: inherit;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+section,
+main > label {
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 600;
+}
+
+input,
+select {
+  width: 100%;
+  min-height: 42px;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #111827;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+  border-color: #60a5fa;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border: 0;
+  background: black;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #cbd5e1;
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+form {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+form input {
+  flex: 1;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+li span:first-child {
+  font-weight: 700;
+}
+
+li button {
+  background: none;
+  color: #dc2626;
+}
+
+main > p {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #fff7ed;
+  color: #9a3412;
+  font-weight: 600;
+}
+
+main > button,
+main > div,
+main > section + button {
+  align-self: center;
+}
+
+main > section:last-child label {
+  margin-top: 12px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Timer */
+div.timer-settings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+div.timer-settings > div {
+  width: 100%;
+}
+
+div.timer-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #64748b;
+  color: #d1d5db;
+  min-height: 64px;
+}
+
+h2.timer-display {
+  font-size: 144px;
+  letter-spacing: -0.04em;
+}
+
+div.timer-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+div.timer-controls > button {
+  border-radius: 999px;
+}
+
+@keyframes timerFinishedFlash {
+  0%,
+  100% {
+    background-color: #f3f4f6;
+  }
+
+  50% {
+    background-color: #ef4444;
+  }
+}
+
+body:has(.timer-finished) {
+  animation: timerFinishedFlash 0.5s linear 6;
+}
+
+body:has(.timer-break) {
+  background: #dcfce7;
+}
+/* Subjects */
+form.add-subject-form {
+  display: flex;
+  gap: 8px;
+}
+
+input.new-subject-input {
+  flex: 1;
+}
+
+button.add-subject-button {
+  width: 80px;
+}
+
+ul.subjects-list > li {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* History */
+div.history-filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+div.history-filters > div {
+  width: 100%;
+}
+
+table.history-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.history-table th {
+  font-weight: 600;
+}
+
+table.history-table td:last-child {
+  display: flex;
+  justify-content: center;
+}
+
+table.history-table td > button {
+  background: none;
+  color: #dc2626;
+}
+
+@media (max-width: 560px) {
+  main {
+    width: min(100% - 20px, 720px);
+    padding: 24px 0;
+  }
+  li button {
+    margin-left: 0;
+  }
+}
