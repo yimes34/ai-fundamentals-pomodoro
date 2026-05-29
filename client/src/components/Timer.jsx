@@ -4,6 +4,8 @@ const TIMER_MESSAGES = {
   break: "휴식 시간입니다.",
   paused: "일시 정지",
   noSubject: "무엇에 집중할지 정해주세요.",
+  noTasks:
+    "집중 과제가 없습니다. 상단 'Subjects' 메뉴에서 집중 과제를 추가해 주세요.",
   maxFocusMinutes:
     "집중의 효율을 높이기 위해서는 60분 집중 후 쉬는 시간을 갖는 것이 좋습니다.",
   focus: (subjectName) => `${subjectName}에 집중하는 시간입니다.`,
@@ -33,6 +35,8 @@ function Timer({
 
   if (focusMinutesMessage) {
     statusMessage = TIMER_MESSAGES.maxFocusMinutes;
+  } else if (subjects.length === 0) {
+    statusMessage = TIMER_MESSAGES.noTasks;
   } else if (!hasSelectedSubject) {
     statusMessage = TIMER_MESSAGES.noSubject;
   } else if (isTimerFinished) {
