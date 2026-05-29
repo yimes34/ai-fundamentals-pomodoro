@@ -1,3 +1,4 @@
+const API_URL = "https://ai-fundamentals-pomodoro-production.up.railway.app";
 import { useEffect, useState } from "react";
 
 function Subjects({ selectedSubject, onChangeSubject, onSubjectsChange }) {
@@ -5,7 +6,7 @@ function Subjects({ selectedSubject, onChangeSubject, onSubjectsChange }) {
   const [newSubjectName, setNewSubjectName] = useState("");
 
   const loadSubjects = () => {
-    fetch("http://127.0.0.1:5000/subjects")
+    fetch(`${API_URL}/subjects`)
       .then((response) => response.json())
       .then((data) => {
         setSubjects(data);
@@ -25,7 +26,7 @@ function Subjects({ selectedSubject, onChangeSubject, onSubjectsChange }) {
       return;
     }
 
-    fetch("http://127.0.0.1:5000/subjects", {
+    fetch(`${API_URL}/subjects`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +44,7 @@ function Subjects({ selectedSubject, onChangeSubject, onSubjectsChange }) {
   };
 
   const onDeleteSubject = (subjectId) => {
-    fetch(`http://127.0.0.1:5000/subjects/${subjectId}`, {
+    fetch(`${API_URL}/subjects/${subjectId}`, {
       method: "DELETE",
     })
       .then((response) => response.json())

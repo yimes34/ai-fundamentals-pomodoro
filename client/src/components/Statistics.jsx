@@ -9,11 +9,13 @@ import {
   YAxis,
 } from "recharts";
 
+const API_URL = "https://ai-fundamentals-pomodoro-production.up.railway.app";
+
 function Statistics() {
   const [statistics, setStatistics] = useState(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/statistics")
+    fetch(`${API_URL}/statistics`)
       .then((response) => response.json())
       .then((data) => {
         setStatistics(data);

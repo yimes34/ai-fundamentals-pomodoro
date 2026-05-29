@@ -8,6 +8,7 @@ import Statistics from "./components/Statistics";
 const TIMER_STORAGE_KEY = "pomodoroTimerState";
 const MAX_FOCUS_MINUTES = 60;
 const BREAK_SECONDS = 5 * 60;
+const API_URL = "https://ai-fundamentals-pomodoro-production.up.railway.app";
 
 const getInitialTimerState = () => {
   const defaultTimerState = {
@@ -82,7 +83,7 @@ function App() {
   }, [secondsLeft]);
 
   const loadSubjects = useCallback(() => {
-    fetch("http://127.0.0.1:5000/subjects")
+    fetch(`${API_URL}/subjects`)
       .then((response) => response.json())
       .then((data) => {
         setHistorySubjects(data);
@@ -102,7 +103,7 @@ function App() {
 
     queryParams.set("range", historyDateRange);
 
-    fetch(`http://127.0.0.1:5000/sessions?${queryParams.toString()}`)
+    fetch(`${API_URL}/sessions?${queryParams.toString()}`)
       .then((response) => response.json())
       .then((data) => {
         setHistorySessions(data);
@@ -118,7 +119,7 @@ function App() {
       return;
     }
 
-    fetch("http://127.0.0.1:5000/sessions", {
+    fetch(`${API_URL}/sessions`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -225,7 +226,7 @@ function App() {
   };
 
   const onDeleteSession = (sessionId) => {
-    fetch(`http://127.0.0.1:5000/sessions/${sessionId}`, {
+    fetch(`${API_URL}/sessions/${sessionId}`, {
       method: "DELETE",
     }).then(() => {
       loadHistorySessions();
