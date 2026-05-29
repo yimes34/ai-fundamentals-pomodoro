@@ -52,27 +52,30 @@ function Statistics() {
         </article>
       </div>
 
-      <h3>Focus Time by Subject</h3>
-      <ResponsiveContainer width="100%" height={300}>
-        <BarChart data={statistics.subject_breakdown}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="subject" />
-          <YAxis />
-          <Tooltip />
-          <Bar dataKey="minutes" />
-        </BarChart>
-      </ResponsiveContainer>
-
-      <h3>Weekly Pattern</h3>
-      <ResponsiveContainer width="100%" height={300}>
-        <BarChart data={statistics.weekly_pattern}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="day" />
-          <YAxis />
-          <Tooltip />
-          <Bar dataKey="minutes" />
-        </BarChart>
-      </ResponsiveContainer>
+      <div>
+        <h3>Focus Time by Subject</h3>
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart data={statistics.subject_breakdown}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="subject" />
+            <YAxis />
+            <Tooltip />
+            <Bar dataKey="minutes" />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+      <div>
+        <h3>Weekly Pattern</h3>
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart data={statistics.weekly_pattern}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="day" />
+            <YAxis />
+            <Tooltip />
+            <Bar dataKey="minutes" />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
     </section>
   );
 }
