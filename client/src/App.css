@@ -2,6 +2,7 @@
 
 :root {
   color: #1f2937;
+  border: none;
   background: #f3f4f6;
   font-family: "JetBrains Mono", monospace;
 }
@@ -15,6 +16,12 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background: #f3f4f6;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
 }
 
 button,
